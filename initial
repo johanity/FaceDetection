@@ -1,0 +1,25 @@
+#importing modules
+import cv2
+
+#Fetching Face Data
+face_data = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+
+#Picture of Me
+johan = cv2.imread('johan.png')
+
+#Converting Image to Grayscale
+gray_johan = cv2.cvtColor(johan, cv2.COLOR_BGR2GRAY)
+
+#face-coordinates
+face_coordinates = face_data.detectMultiScale(gray_johan)
+
+#draw rectangle around (face-coordinates)
+cv2.rectangle(gray_johan, (52, 63), (52 + 86, 63+ 86), (0, 255, 0), 2)
+
+
+#Using Show Function
+cv2.imshow('JohanPrograms', gray_johan)
+cv2.waitKey()
+
+#exist message
+print('code completed')
